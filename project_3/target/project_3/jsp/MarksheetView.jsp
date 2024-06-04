@@ -14,7 +14,7 @@
 <style type="text/css">
 
 .log1 {
-	padding-top: 20%;
+	padding-top: 13%;
 }
 
 .input-group-addon {
@@ -35,11 +35,8 @@ i.css {
 }
 
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/book_shelf.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit.jpg');
 	background-size: 100%;
-	padding-top: 6%;
-		  background-attachment: fixed;
-	
 }
 
 
@@ -65,7 +62,7 @@ i.css {
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (id!=0) {
+								if (dto.getId()!=null) {
 							%>
 							<h3 class="text-center default-text text-primary">Update
 								Marksheet</h3>

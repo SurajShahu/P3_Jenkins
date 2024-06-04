@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import in.co.rays.project_3.util.ServletUtility;
 
 /**
- * welcome functionality controller.to  show welcome page
+ * Welcome functionality controller.to  show welcome page
  * @author Suraj Sahu
  *
  */

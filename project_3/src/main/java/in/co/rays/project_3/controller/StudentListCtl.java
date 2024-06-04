@@ -22,7 +22,7 @@ import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
 /**
- * student functionality controller,to perform list and search operation
+ * Student functionality controller,to perform list and search operation
  * @author Suraj Sahu
  *
  */

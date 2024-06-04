@@ -17,7 +17,7 @@
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
 .p1 {
-	padding-top: 200px;
+	padding-top: 110px;
 	font-size: 20px;
 	color: #b62f2f;
 }
@@ -27,30 +27,24 @@
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_02.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wallpa.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-		  background-attachment: fixed;
-	
 }
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
 
 <body class="p4">
-
+	<div>
+		<%@include file="Header.jsp"%>
+	</div>
 	<div>
 		<form action="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>" method="post">
 
 
-<br>
-<br>
+
 			<div align="center">
-				<h1 class="text-light font-weight-bold">
+				<h1 class="text-decoration-color:Blue; font-weight-bold">
 				Marksheet Merit	List</h1>
 			</div>
 
@@ -111,7 +105,7 @@
 			<div style="margin-left: 87%;" class="pb-2">
 
 				<a href="/project_3/ctl/JasperCtl" class="btn btn-lg btn-warning "
-					role="" target="blank"> <span class="fa fa-print mr-1"></span>Print
+					role="button" target="blank"> <span class="fa fa-print mr-1"></span>Print
 				</a>
 			</div>
 			<div style="margin-bottom: 20px;" class="table-responsive">

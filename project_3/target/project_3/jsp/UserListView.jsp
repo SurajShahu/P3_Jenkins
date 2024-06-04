@@ -20,10 +20,8 @@
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_01.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit.jpg');
 	background-size: 100%;
-		  background-attachment: fixed;
-	
 }
 
 .p1 {
@@ -35,19 +33,10 @@
 .text {
 	text-align: center;
 }
-
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
+<%@include file="Header.jsp"%>
 <body class="hm">
-
-		<%@include file="calendar.jsp" %>
-
-
 	<div>
 		<form class="pb-5" action="<%=ORSView.USER_LIST_CTL%>" method="post">
 			<jsp:useBean id="dto" class="in.co.rays.project_3.dto.UserDTO"
@@ -71,8 +60,8 @@
 				if (list.size() != 0) {
 			%>
 			<center>
-				<h1 class="text-light font-weight-bold pt-3">
-				User List
+				<h1 class="text-dark font-weight-bold pt-3">
+					<u>User List</u>
 				</h1>
 			</center>
 			<div class="row">
@@ -128,13 +117,6 @@
 				&emsp;
 				<div class="col-sm-2"><%=HTMLUtility.getList("Role", String.valueOf(dto.getRoleId()), list1)%></div>
 
-                &emsp;
-             <%--    <div>
-				<input type="text" name="dob" placeholder="Enter dob" id="udate"
-						readonly="readonly"
-						class="form-control"
-						value="<%=ServletUtility.getParameter("dob", request)%>">
-					</div>	 --%>
 				<div class="col-sm-2">
 					<input type="submit" class="btn btn-primary btn-md"
 						style="font-size: 15px" name="operation"
@@ -218,7 +200,7 @@
 				if (list.size() == 0) {
 			%>
 			<center>
-				<h1 style="font-size: 40px; color: white;"><b>User List</b></h1>
+				<h1 style="font-size: 40px; color: #162390;">User List</h1>
 			</center>
 			</br>
 			<div class="row">

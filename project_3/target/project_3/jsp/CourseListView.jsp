@@ -24,22 +24,17 @@
 	text-align: center;
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/course_img.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
 	background-size: 100%;
-		  background-attachment: fixed;
-	
 }
 
 
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
 <body class="p4" >
-	
+	<div>
+		<%@include file="Header.jsp"%>
+	</div>
 	<div>
 		<form action="<%=ORSView.COURSE_LIST_CTL%>" method="post">
 

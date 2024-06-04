@@ -68,5 +68,4 @@
 			<column name="MODIFIED_DATETIME" />
 		</property>
 	</class>
-	   
 </hibernate-mapping>

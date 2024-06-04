@@ -23,7 +23,7 @@
 	color: #b62f2f;
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_01.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/cyber2.jpg');
 	background-size: 100%;
 }
 
@@ -34,13 +34,11 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_01.jpg');
 	background-color: #0064ff36;
 }
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
 <body class="p4">
+	<div>
+		<%@include file="Header.jsp"%>
+	</div>
 	<div>
 		<form action="<%=ORSView.ROLE_LIST_CTL%>" method="post">
 
@@ -66,7 +64,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_01.jpg');
 			%>
 
 			<center>
-				<h1 class="text-white font-weight-bold pt-3">Role
+				<h1 class="text-warning font-weight-bold pt-3">Role
 					List</h1>
 			</center>
 			</br>

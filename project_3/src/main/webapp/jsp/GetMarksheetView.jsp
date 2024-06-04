@@ -28,15 +28,12 @@
 	height: 50px;
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_03.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
 	background-size: 100%;
-	margin-top: 13%;
-	
 }
 </style>
 </head>
 <body class="p4">
-
 	<div>
 		<%@include file="Header.jsp"%>
 	</div>
@@ -46,7 +43,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_03.jpg');
 
 
 			<div align="center">
-				<h1 class="text-white" style="font-size: 40px; padding-top: 24px;">Get
+				<h1 class="text text-primary" style="font-size: 40px; padding-top: 24px;">Get
 					Marksheet</h1>
 			</div>
 			<div class="row">
@@ -95,7 +92,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_03.jpg');
 					<div class="row">
 						<div class="col-md-3"></div>
 						<div class="col-md-9">
-					<h4><span class="text text-white" >Roll_No:<span class="text text-danger">*</span></span></h4>
+						<span><b>Roll_No:<span class="text text-danger">*</span></b></span>
 						</div>
 					</div>
 				</div>

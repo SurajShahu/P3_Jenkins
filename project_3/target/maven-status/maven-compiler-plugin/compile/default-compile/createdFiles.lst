@@ -81,7 +81,6 @@ in\co\rays\project_3\util\EmailUtility.class
 in\co\rays\project_3\controller\RoleCtl.class
 in\co\rays\project_3\controller\UserRegistrationCtl.class
 in\co\rays\project_3\controller\WelcomeCtl.class
-in\co\rays\project_3\controller\JasperCtl.class
 in\co\rays\project_3\controller\CollegeListCtl.class
 in\co\rays\project_3\controller\TimeTableListCtl.class
 in\co\rays\project_3\model\CourseModelJDBCImpl.class

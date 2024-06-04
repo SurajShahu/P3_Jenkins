@@ -1,7 +1,6 @@
 package in.co.rays.project_3.controller;
 
 public interface ORSView {
-	
 	public String APP_CONTEXT = "/project_3";
 
 	public String PAGE_FOLDER = "/jsp";
@@ -12,6 +11,7 @@ public interface ORSView {
 
 
 	public String MARKSHEET_VIEW = PAGE_FOLDER + "/MarksheetView.jsp";
+
 	public String MARKSHEET_LIST_VIEW = PAGE_FOLDER + "/MarksheetListView.jsp";
 	public String GET_MARKSHEET_VIEW = PAGE_FOLDER + "/GetMarksheetView.jsp";
 	public String USER_VIEW = PAGE_FOLDER + "/UserView.jsp";

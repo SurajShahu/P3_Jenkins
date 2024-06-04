@@ -40,21 +40,27 @@ public class UserListCtl extends BaseCtl {
 			request.setAttribute("roleList", list);
 		} catch (Exception e) {
 			log.error(e);
+
 		}
 	}
 
 	@Override
 	protected BaseDTO populateDTO(HttpServletRequest request) {
 		UserDTO dto = new UserDTO();
+
 		dto.setFirstName(DataUtility.getString(request.getParameter("firstName")));
+
 		dto.setLastName(DataUtility.getString(request.getParameter("lastName")));
-		dto.setDob(DataUtility.getDate(request.getParameter("dob")));
+
 		dto.setLogin(DataUtility.getString(request.getParameter("login")));
 		dto.setRoleId(DataUtility.getLong(request.getParameter("Role")));
 		populateBean(dto, request);
 		return dto;
 	}
 
+	/**
+	 * Contains Display logics
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.debug("UserListCtl doGet Start");
@@ -64,6 +70,7 @@ public class UserListCtl extends BaseCtl {
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
 		System.out.println("==========" + pageSize);
 		UserDTO dto = (UserDTO) populateDTO(request);
+// get the selected checkbox ids array for delete list
 		UserModelInt model = ModelFactory.getInstance().getUserModel();
 		try {
 			System.out.println("in ctllllllllll search");
@@ -72,8 +79,12 @@ public class UserListCtl extends BaseCtl {
 			ArrayList<UserDTO> a = (ArrayList<UserDTO>) list;
 
 			for (UserDTO udto1 : a) {
-				
+				System.out.println(
+						udto1.getRoleId() + "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[--------------------");
 			}
+
+			System.out.println(list + "----------------------------------------------------------");
+			System.out.println(list.indexOf(3));
 			next = model.search(dto, pageNo + 1, pageSize);
 			ServletUtility.setList(list, request);
 			if (list == null || list.size() == 0) {
@@ -94,6 +105,7 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.handleException(e, request, response);
 			return;
 		} catch (Exception e) {
+// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		log.debug("UserListCtl doPOst End");
@@ -116,6 +128,8 @@ public class UserListCtl extends BaseCtl {
 		UserDTO dto = (UserDTO) populateDTO(request);
 		String op = DataUtility.getString(request.getParameter("operation"));
 		System.out.println("op---->" + op);
+
+// get the selected checkbox ids array for delete list
 		String[] ids = request.getParameterValues("ids");
 		UserModelInt model = ModelFactory.getInstance().getUserModel();
 		try {
@@ -185,6 +199,7 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.handleException(e, request, response);
 			return;
 		} catch (Exception e) {
+// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		log.debug("UserListCtl doGet End");

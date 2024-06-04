@@ -17,25 +17,22 @@
 <script type="text/javascript"
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
-.p1{
-padding: 8px;
-}
-.p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/colleges.jpg');
-	background-size: 100%;
-		  background-attachment: fixed;
-	
+.p1 {
+	padding: 8px;
 }
 
+.p4 {
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
+	background-size: 100%;
+}
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
+
 <body class="p4">
-		<div>
+	<div>
+		<%@include file="Header.jsp"%>
+	</div>
+	<div>
 		<form action="<%=ORSView.COLLEGE_LIST_CTL%>" method="post">
 
 
@@ -56,86 +53,93 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/colleges.jpg');
 				if (list.size() != 0) {
 			%>
 			<center>
-					<h1 class="text-light font-weight-bold pt-3">College List</h1>
-				</center>
-<div class="row">
+				<h1 class="text-light font-weight-bold pt-3">
+					<u>College List</u>
+				</h1>
+			</center>
+			<div class="row">
 				<div class="col-md-4"></div>
-				
-					<%
-						if (!ServletUtility.getSuccessMessage(request).equals("")) {
-					%>
 
-					<div class="col-md-4 alert alert-success alert-dismissible" style="background-color: #80ff80">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-						<h4><font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font></h4>
-					</div>
-					<%
-						}
-					%>
-				
+				<%
+					if (!ServletUtility.getSuccessMessage(request).equals("")) {
+				%>
+
+				<div class="col-md-4 alert alert-success alert-dismissible"
+					style="background-color: #80ff80">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<h4>
+						<font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font>
+					</h4>
+				</div>
+				<%
+					}
+				%>
+
 				<div class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4"></div>
-				
-					<%
-						if (!ServletUtility.getErrorMessage(request).equals("")) {
-					%>
-					<div class=" col-md-4 alert alert-danger alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<h4><font color="red">	<%=ServletUtility.getErrorMessage(request)%></font></h4>
-					</div>
-					<%
-						}
-					%>
-					<div class="col-md-4"></div>
+
+				<%
+					if (!ServletUtility.getErrorMessage(request).equals("")) {
+				%>
+				<div class=" col-md-4 alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<h4>
+						<font color="red"> <%=ServletUtility.getErrorMessage(request)%></font>
+					</h4>
+				</div>
+				<%
+					}
+				%>
+				<div class="col-md-4"></div>
 			</div>
-				</br>
-			
+			</br>
+
 			<div class="row">
 
-						<div class="col-sm-2"></div>
-						<div class="col-sm-2">
-							<%=HTMLUtility.getList("name", String.valueOf(dto.getId()), list1)%>
-						</div>
-						<div class="col-sm-2">
-							<input class="form-control"
-							type="text" name="state" placeholder="Enter state" class="p1"
-							value="<%=ServletUtility.getParameter("state", request)%>">
-						</div>
-						<div class="col-sm-2">
-							<input
-							type="text" class="form-control" name="city" class="p1" placeholder="Enter City"
-							value="<%=ServletUtility.getParameter("city", request)%>">
-						</div>
+				<div class="col-sm-2"></div>
+				<div class="col-sm-2">
+					<%=HTMLUtility.getList("name", String.valueOf(dto.getId()), list1)%>
+				</div>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="state"
+						placeholder="Enter state" class="p1"
+						value="<%=ServletUtility.getParameter("state", request)%>">
+				</div>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" name="city" class="p1"
+						placeholder="Enter City"
+						value="<%=ServletUtility.getParameter("city", request)%>">
+				</div>
 
-						<div class="col-sm-2">
-							<input type="submit" class="btn btn-primary btn-md"
-								style="font-size: 17px" name="operation"
-								value="<%=CollegeListCtl.OP_SEARCH%>">&emsp;
-								<input type="submit" class="btn btn-dark btn-md"
-								style="font-size: 17px" name="operation"
-								value="<%=CollegeListCtl.OP_RESET%>">
-						</div>
-						
-						<div class="col-sm-2"></div>
-					</div>
-			
+				<div class="col-sm-2">
+					<input type="submit" class="btn btn-primary btn-md"
+						style="font-size: 17px" name="operation"
+						value="<%=CollegeListCtl.OP_SEARCH%>">&emsp; <input
+						type="submit" class="btn btn-dark btn-md" style="font-size: 17px"
+						name="operation" value="<%=CollegeListCtl.OP_RESET%>">
+				</div>
+
+				<div class="col-sm-2"></div>
+			</div>
+
 			</br>
 			<div style="margin-bottom: 20px;" class="table-responsive">
-				<table class="table table-dark table-bordered">
+				<table class="table table-dark table-bordered table-hover">
 					<thead>
-						<tr style="background-color: #8C8C8C;">
+						<tr style="background-color: #8C8C8C;" align="center">
+						
 
 							<th width="10%"><input type="checkbox" id="select_all"
 								name="Select" class="text"> Select All</th>
-							<th class="text">S.NO</th>
+							<th class="text" >S.NO</th>
 							<th class="text">Name</th>
 							<th class="text">Address</th>
 							<th class="text">State</th>
 							<th class="text">City</th>
 							<th class="text">Mobile No</th>
-							<th class="text">Edit</th>
+							<th  class="text">Edit</th>
 						</tr>
 					</thead>
 					<%
@@ -160,75 +164,79 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/colleges.jpg');
 						}
 					%>
 				</table>
-</div>
-				<table width="100%">
-					<tr>
-						<td><input type="submit" name="operation"
-							class="btn btn-secondary btn-md" style="font-size: 17px"
-							value="<%=CollegeListCtl.OP_PREVIOUS%>"
-							<%=pageNo > 1 ? "" : "disabled"%>></td>
-						<td><input type="submit" name="operation"
-							class="btn btn-primary btn-md" style="font-size: 17px"
-							value="<%=CollegeListCtl.OP_NEW%>"></td>
-						<td><input type="submit" name="operation"
-							class="btn btn-danger btn-md" style="font-size: 17px"
-							value="<%=CollegeListCtl.OP_DELETE%>"></td>
+			</div>
+			<table width="100%">
+				<tr>
+					<td><input type="submit" name="operation"
+						class="btn btn-secondary btn-md" style="font-size: 17px"
+						value="<%=CollegeListCtl.OP_PREVIOUS%>"
+						<%=pageNo > 1 ? "" : "disabled"%>></td>
+					<td><input type="submit" name="operation"
+						class="btn btn-primary btn-md" style="font-size: 17px"
+						value="<%=CollegeListCtl.OP_NEW%>"></td>
+					<td><input type="submit" name="operation"
+						class="btn btn-danger btn-md" style="font-size: 17px"
+						value="<%=CollegeListCtl.OP_DELETE%>"></td>
 
-						<td align="right"><input type="submit" name="operation"
-							class="btn btn-secondary btn-md" style="font-size: 17px"
-							style="padding: 5px;" value="<%=CollegeListCtl.OP_NEXT%>"
-							<%=(nextPageSize != 0) ? "" : "disabled"%>></td>
-					</tr>
-					<tr></tr>
-				</table>
-				</br>
-			
+					<td align="right"><input type="submit" name="operation"
+						class="btn btn-secondary btn-md" style="font-size: 17px"
+						style="padding: 5px;" value="<%=CollegeListCtl.OP_NEXT%>"
+						<%=(nextPageSize != 0) ? "" : "disabled"%>></td>
+				</tr>
+				<tr></tr>
+			</table>
+			</br>
+
 			<%
 				}
 				if (list.size() == 0) {
 					System.out.println("user list view list.size==0");
 			%>
 			<center>
-					<h1  class="text-primary font-weight-bold pt-3">College
-						List</h1>
-				</center>
-				</br>
-				<center>
-<div class="row">
-				<div class="col-md-4"></div>
-				
+				<h1 class="text-primary font-weight-bold pt-3">College List</h1>
+			</center>
+			</br>
+			<center>
+				<div class="row">
+					<div class="col-md-4"></div>
+
 					<%
 						if (!ServletUtility.getSuccessMessage(request).equals("")) {
 					%>
 
-					<div class="col-md-4 alert alert-success alert-dismissible" style="background-color: #80ff80">
+					<div class="col-md-4 alert alert-success alert-dismissible"
+						style="background-color: #80ff80">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
-						<h4><font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font></h4>
+						<h4>
+							<font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font>
+						</h4>
 					</div>
 					<%
 						}
 					%>
-				
-				<div class="col-md-4"></div>
-			</div>
-				</center>
-				<div class="row">
-				<div class="col-md-4"></div>
-				
-					<%
-						if (!ServletUtility.getErrorMessage(request).equals("")) {
-					%>
-					<div class=" col-md-4 alert alert-danger alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<h4><font color="red">	<%=ServletUtility.getErrorMessage(request)%></font></h4>
-					</div>
-					<%
-						}
-					%>
+
 					<div class="col-md-4"></div>
+				</div>
+			</center>
+			<div class="row">
+				<div class="col-md-4"></div>
+
+				<%
+					if (!ServletUtility.getErrorMessage(request).equals("")) {
+				%>
+				<div class=" col-md-4 alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<h4>
+						<font color="red"> <%=ServletUtility.getErrorMessage(request)%></font>
+					</h4>
+				</div>
+				<%
+					}
+				%>
+				<div class="col-md-4"></div>
 			</div>
-				</br>
-			
+			</br>
+
 			<div style="padding-left: 48%;">
 				<input type="submit" name="operation" class="btn btn-primary btn-md"
 					style="font-size: 17px" value="<%=CollegeListCtl.OP_BACK%>">
@@ -243,8 +251,8 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/colleges.jpg');
 		</form>
 
 	</div>
-</br>
-</br>
+	</br>
+	</br>
 </body>
 <%@include file="FooterView.jsp"%>
 

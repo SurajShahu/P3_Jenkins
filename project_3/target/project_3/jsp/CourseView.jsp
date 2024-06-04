@@ -20,11 +20,8 @@ i.css {
 	 background-color: #ebebe0;
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/books_10.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
 	background-size: 100%;
-	padding-top: 6%;
-		  background-attachment: fixed;
-	
 }
 
 
@@ -51,7 +48,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/books_10.jpg');
 							  long id=DataUtility.getLong(request.getParameter("id"));
 							
 							
-							if (id!=0)  {
+							if (dto.getId()!=null)  {
 							%>
 							<h3 class="text-center default-text text-primary">Update Course</h3>
 							<%

@@ -1,4 +1,3 @@
-<%@page import="java.util.HashMap"%>
 <%@page import="in.co.rays.project_3.util.HTMLUtility"%>
 <%@page import="in.co.rays.project_3.dto.TimetableDTO"%>
 <%@page import="java.util.Iterator"%>
@@ -20,23 +19,17 @@
 <style>
 
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/time_table.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit.jpg');
 	background-size: 100%;
-		  background-attachment: fixed;
-	
 }
 .p1{
 padding: 8px;
 }
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
 <body  class="hm" >
 	<div>
+		<%@include file="Header.jsp"%>
 		<%@include file ="calendar.jsp" %>
 	</div>
 	<div>
@@ -61,7 +54,7 @@ padding: 8px;
 				if (list.size() != 0) {
 			%>
 			<center>
-					<h1 class="text-dark font-weight-bold pt-3">Time
+					<h1 class="text-primary font-weight-bold pt-3">Time
 						Table List</h1>
 				</center>
 				</br>
@@ -104,36 +97,12 @@ padding: 8px;
 				<div class="col-sm-2">
 					<input  placeholder="Enter Exam Date" type="text"
 							id="udate5" name="Exdate" readonly="readonly"
-							class="form-control"
 							value="<%=DataUtility.getDateString(dto.getExamDate())%>">
-								
 				</div>
-				
-				
-				
 				<div class="col-sm-2">
 					<%=HTMLUtility.getList("subjectId", String.valueOf(dto.getSubId()), list2)%>
 				</div>
 				<div class="col-sm-2"><%=HTMLUtility.getList("courseId", String.valueOf(dto.getCourseId()), list1)%></div>
-				
-				
-				
-				
-				
-				                   <div class="col-sm-2">
-				                   
-                                      <%
-										HashMap map1 = new HashMap();
-										map1.put("08:00 AM to 11:00 AM", "08:00 AM to 11:00 AM");
-										map1.put("12:00PM to 3:00PM", "12:00PM to 3:00PM");
-										map1.put("3:00PM to 6:00PM", "3:00PM to 6:00PM");
-										String htmlList1 = HTMLUtility.getList("examId", dto.getExamTime(), map1);
-									   %>
-									<%=htmlList1%>
-                                    </div>
-				
-				
-				
 				<div class="col-sm-2">
 					<input type="submit" class="btn btn-primary btn-md"
 						style="font-size: 17px" name="operation"

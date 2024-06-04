@@ -32,16 +32,9 @@ i.css {
 	 padding-bottom: 11px; 
 	 background-color: #ebebe0;
 }
-.hm {
-	
-	padding-top: 4%;
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/space_img.jpg');
-	background-size: 100%;
-					  background-attachment: fixed;
-}
 </style>
 </head>
-<body  style=background-color:#ccccb3 class="hm" >
+<body  style=background-color:#ccccb3>
 	<div class="header">
 		<%@include file="Header.jsp"%>
 	</div>

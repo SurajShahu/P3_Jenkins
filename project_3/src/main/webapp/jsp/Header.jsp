@@ -1,4 +1,3 @@
-
 <%@page import="in.co.rays.project_3.controller.LoginCtl"%>
 <%@page import="in.co.rays.project_3.controller.ORSView"%>
 <%@page import="in.co.rays.project_3.controller.LoginCtl"%>
@@ -28,19 +27,16 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <style type="text/css">
-.reg {
-	background-image: linear-gradient(to bottom right, yellow, grey);
+.raj{
+background-image : linear-gradient(to bottom right,  Teal, MistyRose, Black);
 }
 </style>
 </head>
 <body>
 	<%
 		UserDTO userDto = (UserDTO) session.getAttribute("user");
-
 		boolean userLoggedIn = userDto != null;
-
-		String welcomeMsg = "Hi, ";
-
+		String welcomeMsg = "Hello, ";
 		if (userLoggedIn) {
 			String role = (String) session.getAttribute("role");
 			welcomeMsg += userDto.getFirstName() + " (" + role + ")";
@@ -49,25 +45,18 @@
 		}
 	%>
 	<div class="header">
-	
-		<nav class="navbar navbar-expand-lg reg fixed-top"> <a
-			class="navbar-brand" href="<%=ORSView.WELCOME_CTL%>"><img
+		<nav class="navbar navbar-expand-lg raj" > <a class="navbar-brand"
+			href="<%=ORSView.WELCOME_CTL%>"><img
 			src="<%=ORSView.APP_CONTEXT%>/img/custom.png" width="190px"
 			height="50px"></a>
-
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
+		<button class="navbar-toggler " type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
-
-			<span class="navbar-toggler-icon"> <i class="fas fa-bars"
-				style="color: #fff; font-size: 28px;"></i></span>
-
+			<span class="navbar-toggler-icon">
+			<i class= "fas fa-bars" style="color:; font-size: 28px;"></i></span>
 		</button>
-
 		<div class="collapse navbar-collapse" id="navbarNav">
-
 			<ul class="nav navbar-nav ml-auto">
-
 				<a class="nav-link" href="#"> <span class="sr-only">(current)</span>
 				</a>
 				<%
@@ -76,74 +65,53 @@
 				<%
 					if (userDto.getRoleId() == RoleDTO.STUDENT) {
 				%>
-
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Marksheet</font>
-
+					aria-expanded="false"> <font style="color: Black;">Marksheet</font>
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<li><a class="dropdown-item"
 							href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>"><i
 								class=" far fa-file-alt"></i>Marksheet Merit List</a>
 					</div></li>
 
-
-
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">User</font>
-
-				</a>
-
+				<li class="nav-item dropdown">
+					<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> 
+							<font style="color: Black;">User</font>
+					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<li><a class="dropdown-item"
 							href="<%=ORSView.MY_PROFILE_CTL%>"><i class="fas fa-user-tie"></i>My
-
 								Profile</a> <a class="dropdown-item"
 							href="<%=ORSView.CHANGE_PASSWORD_CTL%>"><i
 								class=" fa fa-file-alt"></i>Change Password</a>
 					</div></li>
-
 				<%
 					} else if (userDto.getRoleId() == RoleDTO.ADMIN) {
 				%>
 
-
-
 				<li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">User</font>
-
+					aria-expanded="false"> <font style="color: Black;">User</font>
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.USER_CTL%>"><i
 							class="fas fa-user-circle"></i>Add User</a> <a class="dropdown-item"
 							href="<%=ORSView.USER_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>User List</a>
 					</div></li>
 
-
-
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Marksheet
-
+					aria-expanded="false"> <font style="color: Black;">Marksheet
 					</font></a>
 
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
 
 						<a class="dropdown-item" href="<%=ORSView.MARKSHEET_CTL%>"><i
 							class="far fa-file"></i>Add Marksheet</a> <a class="dropdown-item"
@@ -153,132 +121,88 @@
 							class=" far fa-file-alt"></i>Marksheet Merit List </a> <a
 							class="dropdown-item" href="<%=ORSView.GET_MARKSHEET_CTL%>"><i
 							class="far fa-copy"></i>Get Marksheet</a>
-
 					</div></li>
-
-
 
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Role</font>
-
+					aria-expanded="false"> <font style="color: Black;">Role</font>
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.ROLE_CTL%>"><i
 							class="fas fa-user-tie"></i>Add Role</a> <a class="dropdown-item"
 							href="<%=ORSView.ROLE_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>Role List</a>
-
 					</div></li>
-
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">College</font>
-
+					aria-expanded="false"> <font style="color: Black;">College</font>
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.COLLEGE_CTL%>"><i
 							class="fas fa-university"></i>Add College</a> <a
 							class="dropdown-item" href="<%=ORSView.COLLEGE_LIST_CTL%>"><i
 							class="fas fa-building"></i>College List </a>
-
 					</div></li>
-
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Course
-
+					aria-expanded="false"> <font style="color: Black;">Course
 					</font></a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-						<a class="dropdown-item" href="<%=ORSView.COURSE_CTL%>"><i
+						<a class="dropdown-item" href="<%=ORSView.COURSE_CTL%>"><i			
 							class="fas fa-book-open"></i>Add Course</a> <a class="dropdown-item"
 							href="<%=ORSView.COURSE_LIST_CTL%>"><i
 							class="fas fa-sort-amount-down"></i>Course List </a>
-
 					</div></li>
-
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Student</font>
-
+					aria-expanded="false"> <font style="color: Black;">Student</font>
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.STUDENT_CTL%>"><i
 							class="far fa-user-circle"></i>Add Student</a> <a
 							class="dropdown-item" href="<%=ORSView.STUDENT_LIST_CTL%>"><i
 							class="fas fa-users"></i>Student List</a>
-
 					</div></li>
-
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Faculty
-
+					aria-expanded="false"> <font style="color: Black;">Faculty
 					</font></a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.FACULTY_CTL%>"><i
 							class="fas fa-user-tie"></i>Add Faculty</a> <a class="dropdown-item"
 							href="<%=ORSView.FACULTY_LIST_CTL%>"><i class=" fas fa-users"></i>Faculty
-
 							List</a>
-
 					</div></li>
-
-
 
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Time
-
+					aria-expanded="false"> <font style="color: Black;">Time
 							Table</font>
-
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.TIMETABLE_CTL%>"><i
 							class="fas fa-clock"></i>Add TimeTable</a> <a class="dropdown-item"
 							href="<%=ORSView.TIMETABLE_LIST_CTL%>"><i
 							class="far fa-clock"></i>TimeTable List</a>
-
-
 					</div></li>
-
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Subject</font>
-
+					aria-expanded="false"> <font style="color: Black;">Subject</font>
 				</a>
-
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
 						<a class="dropdown-item" href="<%=ORSView.SUBJECT_CTL%>"><i
 							class="fas fa-calculator"></i>Add Subject</a> <a
 							class="dropdown-item" href="<%=ORSView.SUBJECT_LIST_CTL%>"> <i
 							class="fas fa-sort-amount-down"></i>Subject List
-
 						</a>
-
 					</div></li>
-
-
 
 				<%
 					}
@@ -288,7 +212,7 @@
 					style="padding-left: 5px; padding-right: 67px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"><font style="color: white;"><%=welcomeMsg%>
+					aria-expanded="false"><font style="color: Black;"><%=welcomeMsg%>
 					</font></a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<%
@@ -308,8 +232,8 @@
 							} else {
 						%>
 						<a class="dropdown-item" href="<%=ORSView.LOGIN_CTL%>"><i
-							class="fas fa-sign-in-alt"><b> Login</b></i> <a
-							class="dropdown-item" href="<%=ORSView.USER_REGISTRATION_CTL%>"><i
+							class="fas fa-sign-in-alt"><b> Login</b></i></a> <a class="dropdown-item"
+							href="<%=ORSView.USER_REGISTRATION_CTL%>"><i
 								class="fas fa-registered"><b> User Registration</b></i></a>
 					</div></li>
 				<%

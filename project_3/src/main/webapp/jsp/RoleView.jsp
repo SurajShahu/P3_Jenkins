@@ -27,9 +27,8 @@ i.css {
 
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/book_shelf.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/Login.jpg');
 	background-size: 100%;
-	padding-top: 8%;
 }
 
 </style>
@@ -53,7 +52,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/book_shelf.jpg');
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (id!=0) {
+								if (dto.getId()!=null) {
 							%>
 
 							<h3 class="text-center text-primary font-weight-bold">Update

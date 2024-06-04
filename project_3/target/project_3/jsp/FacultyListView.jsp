@@ -21,21 +21,17 @@
 	padding: 8px;
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/faculty_img.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/welc.jpg');
 	background-size: 100%;
-		  background-attachment: fixed;
-	
 }
 
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
 <body class="p4">
-		<div>
+	<div>
+		<%@include file="Header.jsp"%>
+	</div>
+	<div>
 		<form action="<%=ORSView.FACULTY_LIST_CTL%>" method="post">
 
 
@@ -57,7 +53,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/faculty_img.jpg');
 				if (list.size() != 0) {
 			%>
 			<center>
-				<h1 class="text-white font-weight-bold pt-3">Faculty
+				<h1 class="text-primary font-weight-bold pt-3">Faculty
 					List</h1>
 			</center>
 			</br>

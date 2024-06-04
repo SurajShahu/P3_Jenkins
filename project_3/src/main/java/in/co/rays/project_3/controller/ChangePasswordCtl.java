@@ -20,14 +20,16 @@ import in.co.rays.project_3.util.DataValidator;
 import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
+
 /**
  * @author Suraj Sahu
  *
  */
-@WebServlet(urlPatterns = { "/ctl/ChangePasswordCtl" })
-public class ChangePasswordCtl extends BaseCtl {
+@WebServlet(urlPatterns={"/ctl/ChangePasswordCtl"})
+public class ChangePasswordCtl extends BaseCtl{
 	private static Logger log = Logger.getLogger(ChangePasswordCtl.class);
 
+	
 	protected boolean validate(HttpServletRequest request) {
 		System.out.println("validate.......");
 		log.debug("change password validate method start");
@@ -36,9 +38,9 @@ public class ChangePasswordCtl extends BaseCtl {
 		if (OP_CHANGE_MY_PROFILE.equalsIgnoreCase(op)) {
 			return pass;
 		}
-
+		
 		if (DataValidator.isNull(request.getParameter("oldpassword"))) {
-			request.setAttribute("oldpassword", PropertyReader.getValue("error.require", "Old password"));
+			request.setAttribute("oldpassword",  PropertyReader.getValue("error.require", "Old password"));
 			pass = false;
 		} else if (!DataValidator.isPassword(request.getParameter("oldpassword"))) {
 			request.setAttribute("oldpassword", "Please Enter valid Password");
@@ -67,62 +69,62 @@ public class ChangePasswordCtl extends BaseCtl {
 		return pass;
 	}
 
-	/**
-	 * Display Logics inside this method
-	 */
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
-		System.out.println("do get ............");
-		ServletUtility.forward(getView(), request, response);
-
+	  /**
+     * Display Logics inside this method
+     */
+	
+	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
+	{ System.out.println("do get ............");
+		ServletUtility.forward(getView(), request, response);	
+		
 	}
-
-	/**
-	 * Submit logic inside it
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
-		HttpSession session = request.getSession();
+	
+	 /**
+     * Submit logic inside it
+     */
+	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
+		HttpSession session=request.getSession();
 		log.debug("change password do post start");
-		String op = DataUtility.getString(request.getParameter("operation"));
-		UserModelInt model = ModelFactory.getInstance().getUserModel();
-
-		UserDTO UserBean = (UserDTO) session.getAttribute("user");
-		String newPassword = request.getParameter("newpassword");
-		String oldPassword = request.getParameter("oldpassword");
-		long id = UserBean.getId();
-		System.out.println("do post id..." + id + "...." + UserBean.getPassword() + ";;;;;;;;;" + UserBean.getId()
-				+ "....." + newPassword + "...." + oldPassword);
-		if (OP_SAVE.equalsIgnoreCase(op)) {
-			try {
-				boolean flag = model.changePassword(id, newPassword, oldPassword);
-				if (flag == true) {
-					model.findByLogin(UserBean.getLogin());
-					ServletUtility.setSuccessMessage("Password has been change successfully", request);
-				}
-			} catch (ApplicationException e) {
-				log.error(e);
-				ServletUtility.handleException(e, request, response);
-				return;
-
-			} catch (RecordNotFoundException e) {
-				ServletUtility.setErrorMessage("Old PassWord is Invalid", request);
+		String op=DataUtility.getString(request.getParameter("operation"));
+		UserModelInt model=ModelFactory.getInstance().getUserModel();
+		
+		UserDTO UserBean=(UserDTO)session.getAttribute("user");
+		String newPassword=request.getParameter("newpassword");
+		String oldPassword=request.getParameter("oldpassword");
+		long id=UserBean.getId();
+		System.out.println("do post id..."+id+"...."+UserBean.getPassword()+";;;;;;;;;"+UserBean.getId()+"....."+newPassword+"...."+oldPassword);
+		if(OP_SAVE.equalsIgnoreCase(op)){
+			try{
+				boolean flag=model.changePassword(id,newPassword,oldPassword);
+			if(flag==true)	{
+				model.findByLogin(UserBean.getLogin());
+				ServletUtility.setSuccessMessage("Password has been change successfully", request);
 			}
+			}catch (ApplicationException e) {
+                log.error(e);
+                ServletUtility.handleException(e, request, response);
+                return;
 
-		} else if (OP_CHANGE_MY_PROFILE.equalsIgnoreCase(op)) {
-			ServletUtility.redirect(ORSView.MY_PROFILE_CTL, request, response);
-			return;
-		}
+            } catch (RecordNotFoundException e) {
+                ServletUtility.setErrorMessage("Old PassWord is Invalid",
+                        request);
+            }
+			
+		}  else if (OP_CHANGE_MY_PROFILE.equalsIgnoreCase(op)) {
+            ServletUtility.redirect(ORSView.MY_PROFILE_CTL, request, response);
+            return;
+        }
 
-		ServletUtility.forward(ORSView.CHANGE_PASSWORD_VIEW, request, response);
-		log.debug("ChangePasswordCtl Method doGet Ended");
-
+        ServletUtility.forward(ORSView.CHANGE_PASSWORD_VIEW, request, response);
+        log.debug("ChangePasswordCtl Method doGet Ended");
+		
 	}
-
+		
+		
 	protected String getView() {
 		// TODO Auto-generated method stub
 		return ORSView.CHANGE_PASSWORD_VIEW;
 	}
 
 }
+

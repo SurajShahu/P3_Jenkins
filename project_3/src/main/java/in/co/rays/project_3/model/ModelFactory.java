@@ -16,9 +16,8 @@ public final class ModelFactory {
 	private static ModelFactory mFactory = null;
 	private static HashMap modelCache = new HashMap();
 
-	
 	private ModelFactory() {
- 
+
 	}
 
 	public static ModelFactory getInstance() {
@@ -28,29 +27,6 @@ public final class ModelFactory {
 		return mFactory;
 	}
 
-	
-	public UserModelInt getUserModel() {
-		//UserModelInt userModel = null;
-		UserModelInt userModel = (UserModelInt) modelCache.get("userModel");
-		System.out.println(userModel);
-		if (userModel == null) {
-			
-			if ("Hibernate".equals(DATABASE)) {
-				userModel = new UserModelHibImp();
-			}
-			if ("JDBC".equals(DATABASE)) {
-				userModel = new UserModelJDBCImpl();
-			}
-			System.out.println(DATABASE);
-			modelCache.put("userModel", userModel);
-		}
-
-		return userModel;
-	}
-	
-	
-	
-	
 	public MarksheetModelInt getMarksheetModel() {
 		MarksheetModelInt marksheetModel = (MarksheetModelInt) modelCache.get("marksheetModel");
 		if (marksheetModel == null) {
@@ -93,6 +69,22 @@ public final class ModelFactory {
 			modelCache.put("roleModel", roleModel);
 		}
 		return roleModel;
+	}
+
+	public UserModelInt getUserModel() {
+
+		UserModelInt userModel = (UserModelInt) modelCache.get("userModel");
+		if (userModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				userModel = new UserModelHibImp();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				userModel = new UserModelJDBCImpl();
+			}
+			modelCache.put("userModel", userModel);
+		}
+
+		return userModel;
 	}
 
 	public StudentModelInt getStudentModel() { 
@@ -152,7 +144,7 @@ public final class ModelFactory {
 				subjectModel = new SubjectModelJDBCImpl();
 			}
 			modelCache.put("subjectModel", subjectModel);
-		} 
+		}
 
 		return subjectModel;
 	}

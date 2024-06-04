@@ -1,7 +1,7 @@
 package in.co.rays.project_3.dto;
 
 /**
- * marksheet JavaDto encapsulates marksheet attributes
+ * Marksheet JavaDto encapsulates marksheet attributes
  * 
  * @author Suraj Sahu
  *

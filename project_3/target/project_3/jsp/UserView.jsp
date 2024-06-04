@@ -27,11 +27,8 @@ i.css {
 }
 
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/book_shelf.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit.jpg');
 	background-size: 100%;
-	padding-top: 8%;
-	  background-attachment: fixed;
-	
 }
 </style>
 
@@ -58,7 +55,7 @@ i.css {
 							  long id=DataUtility.getLong(request.getParameter("id"));
 							
 							
-								if (dto.getId() != null && id > 0){  
+								if (dto.getId()!=null) {
 							%>
 							<h3 class="text-center default-text text-primary">Update User</h3>
 							<%
@@ -138,7 +135,7 @@ i.css {
 	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("lastName", request)%></font></br>		
 	
 								<%
-								if (dto.getId() == null || id <= 0) {
+								if (id <=0) {
 								%>
 
                                <span class="pl-sm-5"><b>Password</b>
@@ -229,20 +226,20 @@ i.css {
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-calendar grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <input type="text" id="udate" name="dob" class="form-control" placeholder="Date Of Birth" readonly="readonly" value="<%=DataUtility.getDateString(dto.getDob()) %>">
+        <input type="text" id="datepicker2" name="dob" class="form-control" placeholder="Date Of Birth" readonly="readonly" value="<%=DataUtility.getDateString(dto.getDob()) %>">
       </div>
     </div>	
 	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("dob", request)%></font></br>
 					<%
-							if (dto.getId() != null && id >0) {
+								if (id > 0) {
 							%>
 
 							<div class="text-center">
 
 								<input type="submit" name="operation"
 									class="btn btn-success btn-md" style="font-size: 17px"
-									value="<%=UserCtl.OP_UPDATE%>"> <input type="submit"
-									name="operation" class="btn btn-warning btn-md"
+									value="<%=UserCtl.OP_UPDATE%>"> <input
+									type="submit" name="operation" class="btn btn-warning btn-md"
 									style="font-size: 17px" value="<%=UserCtl.OP_CANCEL%>">
 
 							</div>

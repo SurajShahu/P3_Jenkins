@@ -176,12 +176,7 @@ public class TimetableModelHibImp implements TimetableModelInt {
 			}
 			if (dto.getCourseId() > 0) {
 				criteria.add(Restrictions.eq("courseId", dto.getCourseId()));
-			}
-			if (dto.getExamTime() != null && dto.getExamTime().length() > 0) {
-				criteria.add(Restrictions.like("examTime", dto.getExamTime()+ "%"));
-			}
-			
-			}
+			}}
 			if (pageSize > 0) {
 				criteria.setFirstResult((pageNo - 1) * pageSize);
 				criteria.setMaxResults(pageSize);

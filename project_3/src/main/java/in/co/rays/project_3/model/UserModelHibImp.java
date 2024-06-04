@@ -10,9 +10,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
 import in.co.rays.project_3.dto.UserDTO;
@@ -34,7 +32,8 @@ public class UserModelHibImp implements UserModelInt {
 
 	public long add(UserDTO dto) throws ApplicationException, DuplicateRecordException {
 
-		System.out.println("in add");
+		System.out.println("in addddddddddddd");
+		// TODO Auto-generated method stub
 		/* log.debug("usermodel hib start"); */
 
 		UserDTO existDto = null;
@@ -43,23 +42,23 @@ public class UserModelHibImp implements UserModelInt {
 			throw new DuplicateRecordException("login id already exist");
 		}
 		Session session = HibDataSource.getSession();
-
-		/*
-		 * SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		 * Session session = sf.openSession();
-		 */
 		Transaction tx = null;
 		try {
 
 			tx = session.beginTransaction();
+
+			System.out.println("trac");
 			session.save(dto);
+			System.out.println("trac1");
 			dto.getId();
+			System.out.println("trac3");
 			tx.commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			// TODO: handle exception
 			if (tx != null) {
 				tx.rollback();
+
 			}
 			throw new ApplicationException("Exception in User Add " + e.getMessage());
 		} finally {
@@ -95,10 +94,8 @@ public class UserModelHibImp implements UserModelInt {
 		Transaction tx = null;
 		UserDTO existDto = findByLogin(dto.getLogin());
 		// Check if updated LoginId already exist
-		// if user sends emailid which is already in database which is of another user
-		//you can update data of id which is edited
 		if (existDto != null && existDto.getId() != dto.getId()) {
-			throw new DuplicateRecordException("LoginId is already exist");
+		//	throw new DuplicateRecordException("LoginId is already exist");
 		}
 
 		try {
@@ -123,6 +120,7 @@ public class UserModelHibImp implements UserModelInt {
 		try {
 			session = HibDataSource.getSession();
 			dto = (UserDTO) session.get(UserDTO.class, pk);
+
 		} catch (HibernateException e) {
 			throw new ApplicationException("Exception : Exception in getting User by pk");
 		} finally {
@@ -190,6 +188,10 @@ public class UserModelHibImp implements UserModelInt {
 	}
 
 	public List search(UserDTO dto, int pageNo, int pageSize) throws ApplicationException {
+		// TODO Auto-generated method stub
+
+		System.out.println(
+				"hellllo" + pageNo + "....." + pageSize + "........" + dto.getId() + "......" + dto.getRoleId());
 		Session session = null;
 		ArrayList<UserDTO> list = null;
 		try {
@@ -246,7 +248,7 @@ public class UserModelHibImp implements UserModelInt {
 
 	public UserDTO authenticate(String login, String password) throws ApplicationException {
 		// TODO Auto-generated method stub
-		System.out.println(login + "ggggggg" + password);
+		System.out.println(login + "kkkkk" + password);
 		Session session = null;
 		UserDTO dto = null;
 		session = HibDataSource.getSession();
@@ -256,7 +258,6 @@ public class UserModelHibImp implements UserModelInt {
 		List list = q.list();
 		if (list.size() > 0) {
 			dto = (UserDTO) list.get(0);
-
 		} else {
 			dto = null;
 
@@ -323,7 +324,7 @@ public class UserModelHibImp implements UserModelInt {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 //		map.put("login", userData.getLogin());
-		map.put("login", userData.getLogin());
+		map.put("login", "gupta.vipin02@gmail.com");
 
 		map.put("password", userData.getPassword());
 		map.put("firstName", userData.getFirstName());
