@@ -33,9 +33,13 @@ i.css {
 
 }
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/welc.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/faculty_img.jpg');
 	background-size : cover;
 	background-repeat : no-repeat;
+	padding-top: 6%;
+	padding-bottom: 2%;
+		  background-attachment: fixed;
+	
 }
 
 </style>
@@ -64,7 +68,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/welc.jpg');
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getId()!=null) {
+								if (id!=0) {
 							%>
 							<h3 class="text-center text-primary">Update Faculty</h3>
 							<%

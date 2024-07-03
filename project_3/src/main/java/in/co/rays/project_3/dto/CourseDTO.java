@@ -1,7 +1,7 @@
 package in.co.rays.project_3.dto;
 
 /**
- * Course JavaDto encapsulates course attributes
+ * course JavaDto encapsulates course attributes
  * @author Suraj Sahu
  *
  */

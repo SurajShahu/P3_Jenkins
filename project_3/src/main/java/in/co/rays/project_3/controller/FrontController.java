@@ -30,14 +30,13 @@ public class FrontController implements Filter {
 		
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-		
 		HttpSession session = request.getSession();
 		
 		String uri=request.getRequestURI();
 		request.setAttribute("uri", uri);
 		
 		if (session.getAttribute("user") == null) {
-			request.setAttribute("error", "Your session is expired. Please Re-Login");
+			request.setAttribute("error", "your session is expired please re-Login");
 			ServletUtility.forward(ORSView.LOGIN_VIEW, request, response);
 		} else {
 			chain.doFilter(req, resp);

@@ -15,7 +15,7 @@
 	<br>
 	<br>
 	<div align="center">
- 		<img src="<%=ORSView.APP_CONTEXT%>/img/404.jpg" width="550" height="250">
+ 		<img src="<%=ORSView.APP_CONTEXT%>/img/error_img.jpg" width="550" height="250">
 
 		<h1>Oops! something went wrong</h1>
 		<font style="color: red; size: 25px;">Requested

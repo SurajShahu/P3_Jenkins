@@ -14,7 +14,7 @@
 <style type="text/css">
 
 .log1 {
-	padding-top: 13%;
+	padding-top: 20%;
 }
 
 .input-group-addon {
@@ -35,8 +35,11 @@ i.css {
 }
 
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/book_shelf.jpg');
 	background-size: 100%;
+	padding-top: 6%;
+		  background-attachment: fixed;
+	
 }
 
 
@@ -62,7 +65,7 @@ i.css {
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getId()!=null) {
+								if (id!=0) {
 							%>
 							<h3 class="text-center default-text text-primary">Update
 								Marksheet</h3>
@@ -197,8 +200,7 @@ i.css {
 										</div>
 										<input type="text" name="maths" class="form-control"
 											placeholder="Enter Maths"
-											value="<%=DataUtility.getStringData(dto.getMaths()).equals("0") ? ""
-					: DataUtility.getStringData(dto.getMaths())%>">
+											value="<%=DataUtility.getStringData(dto.getMaths()).equals("0") ? "": DataUtility.getStringData(dto.getMaths())%>">
 									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("maths", request)%></font></br>

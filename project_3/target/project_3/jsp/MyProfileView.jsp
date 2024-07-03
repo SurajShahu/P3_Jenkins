@@ -25,14 +25,21 @@ i.css {
 	 background-color: #ebebe0;
 }
 <%-- .hm-gradient {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/mymind.jpgsss);
-	background-repeat: no repeat;
-    background-size: 100%;
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg.png');
 	
 } --%>
+.hm {
+	
+	padding-top: 6%;
+		background-image: url('<%=ORSView.APP_CONTEXT%>/img/space_img.jpg');
+		background-size: 100%;
+					  background-attachment: fixed;
+		
+	
+}
 </style>
 </head>
-<body style=background-color:#ccccb3>
+<body style=background-color:#ccccb3 class="hm" >
 	<div class="header">
 		<%@include file="Header.jsp"%>
 		<%@include file="calendar.jsp" %>

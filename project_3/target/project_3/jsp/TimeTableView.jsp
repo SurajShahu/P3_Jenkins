@@ -33,8 +33,11 @@ i.css {
 }
 
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/time_table.jpg');
 	background-size: 100%;
+	padding-top: 6%;
+		  background-attachment: fixed;
+	
 }
 
 <%-- .hm-gradient {
@@ -63,7 +66,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getId()!=null) {
+								if (id!=0) {
 							%>
 							<h3 class="text-center text-primary">Update Time Table</h3>
 							<%

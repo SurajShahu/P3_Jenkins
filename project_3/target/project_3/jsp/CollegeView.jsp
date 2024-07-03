@@ -19,8 +19,11 @@ i.css {
 	background-color: #ebebe0;
 }
 .p4{
-background-image: linear-gradient(to bottom left, Brown, Orange, Blue );
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/colleges.jpg');
 	background-size: 100%;
+	padding-top: 6%;
+		  background-attachment: fixed;
+	
 }
 
 </style>
@@ -45,7 +48,7 @@ background-image: linear-gradient(to bottom left, Brown, Orange, Blue );
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getId()!=null) {
+								if (id!=0) {
 							%>
 							<h3 class="text-center text-primary">Update College</h3>
 							<%

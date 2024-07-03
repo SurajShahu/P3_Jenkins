@@ -22,7 +22,7 @@ import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
 /**
- * Subject functionality controller.to show list
+ * subject functionality controller.to show list
  * @author Suraj Sahu
  *
  */
@@ -53,6 +53,8 @@ public class TimeTableListCtl extends BaseCtl {
 		//dto.setSubName(DataUtility.getString(request.getParameter("subjectId")));
 		dto.setSubId(DataUtility.getInt(request.getParameter("subjectId")));
 		dto.setSemester(DataUtility.getString(request.getParameter("semester")));
+		
+		dto.setExamTime(DataUtility.getString(request.getParameter("examId")));
 		populateBean(dto,request);
 		return dto;
 	}

@@ -4,12 +4,16 @@ package in.co.rays.project_3.dto;
 import java.sql.Timestamp;
 import java.util.Date;
 /**
- * User JavaDto encapsulates user attributes
+ * 
+ * user JavaDto encapsulates user attributes
+ * 
+ * 
  * @author Suraj Sahu
  *
  */
 
 public class UserDTO extends BaseDTO {
+	 
 	public static final String ACTIVE = "Active";
 	public static final String INACTIVE = "Inactive";
 	private String firstName;

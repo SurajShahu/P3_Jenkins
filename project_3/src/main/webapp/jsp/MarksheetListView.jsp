@@ -20,18 +20,23 @@
 .p1 {
 	padding: 8px;
 }
-
 .hm {
-	background-image:
-		url('<%=ORSView.APP_CONTEXT%>/img/background-g1d93e894b_1920.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/universe_02.jpg');
 	background-size: 100%;
+		  background-attachment: fixed;
+	
 }
+
 </style>
+
+<nav class="fixed-top">
+<%@include file="Header.jsp"%></nav>
+<br>
+<br>
+<br>
 </head>
 <body class="hm">
-	<div>
-		<%@include file="Header.jsp"%>
-	</div>
+
 	<div>
 		<form action="<%=ORSView.MARKSHEET_LIST_CTL%>" method="post">
 
@@ -56,7 +61,8 @@
 				if (list.size() != 0) {
 			%>
 			<center>
-				<h1 class="text-primary font-weight-bold pt-3">Marksheet List</h1>
+				<h1 class="text-white font-weight-bold pt-3">Marksheet
+					List</h1>
 			</center>
 
 			</br>
@@ -67,12 +73,9 @@
 					if (!ServletUtility.getSuccessMessage(request).equals("")) {
 				%>
 
-				<div class="col-md-4 alert alert-success alert-dismissible"
-					style="background-color: #80ff80">
+				<div class="col-md-4 alert alert-success alert-dismissible" style="background-color: #80ff80">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<h4>
-						<font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font>
-					</h4>
+					<h4><font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font></h4>
 				</div>
 				<%
 					}
@@ -89,8 +92,7 @@
 				<div class=" col-md-4 alert alert-danger alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<h4>
-						<font color="red"><%=ServletUtility.getErrorMessage(request)%></font>
-					</h4>
+						<font color="red"><%=ServletUtility.getErrorMessage(request)%></font></h4>
 				</div>
 				<%
 					}
@@ -101,8 +103,7 @@
 
 				<div class="col-sm-3"></div>
 				<div class="col-sm-2">
-					<input class="form-control" type="text" name="name"
-						placeholder="Enter name" class="p1"
+					<input class="form-control" type="text" name="name" placeholder="Enter name" class="p1"
 						value="<%=ServletUtility.getParameter("name", request)%>">
 				</div>
 
@@ -111,8 +112,9 @@
 					<input type="submit" class="btn btn-primary btn-md"
 						style="font-size: 17px" name="operation"
 						value="<%=MarksheetListCtl.OP_SEARCH%>">&emsp; <input
-						type="submit" class="btn btn-dark btn-md" style="font-size: 17px"
-						name="operation" value="<%=MarksheetListCtl.OP_RESET%>">
+						type="submit" class="btn btn-dark btn-md"
+						style="font-size: 17px" name="operation"
+						value="<%=MarksheetListCtl.OP_RESET%>">
 				</div>
 
 				<div class="col-sm-3"></div>
@@ -134,7 +136,7 @@
 							<th class="text">Physics</th>
 							<th class="text">Chemistry</th>
 							<th class="text">Maths</th>
-							<th class="text">Edit</th>
+							<th class="text">Edit</th>	
 						</tr>
 					</thead>
 					<%
@@ -146,12 +148,12 @@
 						<tr>
 							<td align="center"><input type="checkbox" class="checkbox"
 								name="ids" value="<%=dto.getId()%>"></td>
-							<td align="center"><%=index++%></td>
-							<td><%=dto.getRollNo()%></td>
-							<td><%=dto.getName()%></td>
-							<td><%=dto.getPhysics()%></td>
+							<td ><%=index++%></td>
+							<td ><%=dto.getRollNo()%></td>
+							<td ><%=dto.getName()%></td>
+							<td ><%=dto.getPhysics()%></td>
 							<td><%=dto.getChemistry()%></td>
-							<td><%=dto.getMaths()%></td>
+							<td ><%=dto.getMaths()%></td>
 
 							<td align="center"><a
 								href="MarksheetCtl?id=<%=dto.getId()%>">Edit</a></td>
@@ -189,30 +191,28 @@
 					System.out.println("user list view list.size==0");
 			%>
 			<center>
-				<h1 class="text-primary font-weight-bold pt-3">Marksheet List</h1>
+				<h1 class="text-primary font-weight-bold pt-3">Marksheet
+					List</h1>
 			</center>
 			</br>
 			<div class="row">
 				<div class="col-md-4"></div>
-
-
+				
+				
 				<%
 					if (!ServletUtility.getSuccessMessage(request).equals("")) {
 				%>
 
-				<div class="col-md-4 alert alert-success alert-dismissible"
-					style="background-color: #80ff80">
+				<div class="col-md-4 alert alert-success alert-dismissible" style="background-color: #80ff80">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<h4>
-						<font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font>
-					</h4>
+					<h4><font color="#008000"><%=ServletUtility.getSuccessMessage(request)%></font></h4>
 				</div>
 				<%
 					}
 				%>
-
-
-
+				
+				
+				
 
 				<%
 					if (!ServletUtility.getErrorMessage(request).equals("")) {
@@ -220,8 +220,7 @@
 				<div class=" col-md-4 alert alert-danger alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<h4>
-						<font color="red"><%=ServletUtility.getErrorMessage(request)%></font>
-					</h4>
+						<font color="red"><%=ServletUtility.getErrorMessage(request)%></font></h4>
 				</div>
 				<%
 					}

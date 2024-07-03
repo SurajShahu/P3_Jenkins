@@ -18,18 +18,24 @@
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
 body{
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/white.png');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/user_reg.jpg');
+	background-size: 100%;
+			  background-attachment: fixed;
+	
 } 
 
 .p1 {
 	padding: 8px;
 }
 </style>
+<nav class="fixed-top">
+<%@include file="Header.jsp"%></nav>
+<br>
+<br>
+<br>
 </head>
 <body>
-	<div>
-		<%@include file="Header.jsp"%>
-	</div>
+	
 	<div>
 		<form action="<%=ORSView.SUBJECT_LIST_CTL%>" method="post">
 
@@ -132,13 +138,13 @@ body{
 
 					<tbody>
 						<tr>
-							<td align="center"><input type="checkbox" class="checkbox"
-								name="ids" value="<%=dto.getId()%>"></td>
-							<td ><%=index++%></td>
-							<td ><%=dto.getSubjectName()%></td>
-							<td ><%=dto.getCourseName()%></td>
-							<td ><%=dto.getDescription()%></td>
-							<td ><a href="SubjectCtl?id=<%=dto.getId()%>">Edit</a></td>
+							<td align="center"><input type="checkbox" class="checkbox" 
+								name="ids" value="<%=dto.getId()%>" ></td>
+							<td bgcolor="white"><%=index++%></td>
+							<td bgcolor="white"><%=dto.getSubjectName()%></td>
+							<td bgcolor="white"><%=dto.getCourseName()%></td>
+							<td bgcolor="white"><%=dto.getDescription()%></td>
+							<td bgcolor="white"><a href="SubjectCtl?id=<%=dto.getId()%>">Edit</a></td>
 						</tr>
 					</tbody>
 					<%

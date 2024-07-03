@@ -20,14 +20,14 @@ i.css {
 	 padding-bottom: 11px; 
 	 background-color: #ebebe0;
 }
-
 .p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit2.jpg');
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/course_img.jpg');
 	background-size: 100%;
-
+		padding-top: 8%;
+	  background-attachment: fixed;
+	
 .input-group-addon {
 	box-shadow: 9px 8px 7px #001a33;
-
 }
 }
 </style>
@@ -79,17 +79,17 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit2.jpg');
 							<!--Body-->
 							<div>
 
-								<jsp:useBean id="bean" class="in.co.rays.project_3.dto.UserDTO"
+								<jsp:useBean id="dto" class="in.co.rays.project_3.dto.UserDTO"
 									scope="request"></jsp:useBean>
 
-								<input type="hidden" name="id" value="<%=bean.getId()%>">
+								<input type="hidden" name="id" value="<%=dto.getId()%>">
 								<input type="hidden" name="createdBy"
-									value="<%=bean.getCreatedBy()%>"> <input type="hidden"
-									name="modifiedBy" value="<%=bean.getModifiedBy()%>"><input
+									value="<%=dto.getCreatedBy()%>"> <input type="hidden"
+									name="modifiedBy" value="<%=dto.getModifiedBy()%>"><input
 									type="hidden" name="createdDatetime"
-									value="<%=DataUtility.getTimestamp(bean.getCreatedDatetime())%>">
+									value="<%=DataUtility.getTimestamp(dto.getCreatedDatetime())%>">
 								<input type="hidden" name="modifiedDatetime"
-									value="<%=DataUtility.getTimestamp(bean.getModifiedDatetime())%>">
+									value="<%=DataUtility.getTimestamp(dto.getModifiedDatetime())%>">
 							</div>
 							<div class="md-form input-group-addon">
 							<span class="pl-sm-5"><b>Email Id</b><span style="color:red;">*</span></span></br>
@@ -98,24 +98,29 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/whit2.jpg');
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <input type="text" class="form-control" name="login" id="defaultForm-pass" placeholder="Enter email" value="<%=DataUtility.getStringData(bean.getLogin())%>">
+        <input type="text" class="form-control" name="login" placeholder="Enter email" value="<%=DataUtility.getStringData(dto.getLogin())%>">
       </div>
     </div>
 	<font color="red" class="pl-sm-5"><%=ServletUtility.getErrorMessage("login", request)%></font></br>						
 							 
 								
 
-							<div class="text-center">
+							
+
+						</div>
+					</div>
+				
+				<div class="text-center">
 
 								<input type="submit" name="operation"
 									class="btn btn-success btn-md" style="font-size:16px"
 									value="<%=ForgetPasswordCtl.OP_GO%>" >
 							</div>
-
-						</div>
-					</div>
 				</div>
 				<div class="col-md-4 mb-4"></div>
+				
+				
+				
 				</div>
 				
 		</form>

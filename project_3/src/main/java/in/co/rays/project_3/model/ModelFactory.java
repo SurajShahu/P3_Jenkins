@@ -16,8 +16,9 @@ public final class ModelFactory {
 	private static ModelFactory mFactory = null;
 	private static HashMap modelCache = new HashMap();
 
+	
 	private ModelFactory() {
-
+ 
 	}
 
 	public static ModelFactory getInstance() {
@@ -26,7 +27,115 @@ public final class ModelFactory {
 		}
 		return mFactory;
 	}
+	
+	public OrderModelInt getOrderModel() {
+		OrderModelInt orderModel = (OrderModelInt) modelCache.get("orderModel");
+		if (orderModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				orderModel = new OrderModelHibImp();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				orderModel = new OrderModelHibImp();
+			}
+			modelCache.put("orderModel", orderModel);
+		}
 
+		return orderModel;
+	}
+	
+	public EmployeeModelInt getEmployeeModel() {
+		EmployeeModelInt employeeModel = (EmployeeModelInt) modelCache.get("employeeModel");
+		if (employeeModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				employeeModel = new EmployeeModelHibImp();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				employeeModel = new EmployeeModelHibImp();
+			}
+			modelCache.put("employeeModel", employeeModel);
+		}
+
+		return employeeModel;
+	}
+
+	public ShoppingCartModelInt getShoppingCartModel() {
+	    ShoppingCartModelInt shoppingCartModel = (ShoppingCartModelInt) modelCache.get("shoppingCartModel");
+	    System.out.println(shoppingCartModel);
+	    if (shoppingCartModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            shoppingCartModel = new ShoppingCartModelHibImp(); // Adjust with your Hibernate implementation class for ShoppingCartModel
+	        } else if ("JDBC".equals(DATABASE)) {
+	            /* shoppingCartModel = new ShoppingCartModelJDBCImpl(); */ // Adjust with your JDBC implementation class for ShoppingCartModel
+	        }
+	        System.out.println(DATABASE);
+	        modelCache.put("shoppingCartModel", shoppingCartModel);
+	    }
+
+	    return shoppingCartModel;
+	}
+
+	
+	public JobModelInt getJobModel() {
+	    JobModelInt jobModel = (JobModelInt) modelCache.get("jobModel");
+	    System.out.println(jobModel);
+	    if (jobModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            jobModel = new JobModelHibImp(); // Adjust with your Hibernate implementation class for JobModel
+	        } else if ("JDBC".equals(DATABASE)) {
+				/* jobModel = new JobModelJDBCImpl(); */// Adjust with your JDBC implementation class for JobModel
+	        }
+	        System.out.println(DATABASE);
+	        modelCache.put("jobModel", jobModel);
+	    }
+
+	    return jobModel;
+	}
+
+	
+	public ProductModelInt getProductModel() {
+        ProductModelInt productModel = (ProductModelInt) modelCache.get("productModel");
+        System.out.println(productModel);
+        
+        if (productModel == null) {
+            if ("Hibernate".equals(DATABASE)) {
+                productModel = new ProductModelHibImp();
+			} /*
+				 * else if ("JDBC".equals(DATABASE)) { productModel = new
+				 * ProductModelJDBCImpl(); }
+				 */
+            
+            // Cache the instance for future use
+            modelCache.put("productModel", productModel);
+        }
+
+        return productModel;
+    }
+	
+	
+	
+	
+	public UserModelInt getUserModel() {
+		//UserModelInt userModel = null;
+		UserModelInt userModel = (UserModelInt) modelCache.get("userModel");
+		System.out.println(userModel);
+		if (userModel == null) {
+			
+			if ("Hibernate".equals(DATABASE)) {
+				userModel = new UserModelHibImp();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				userModel = new UserModelJDBCImpl();
+			}
+			System.out.println(DATABASE);
+			modelCache.put("userModel", userModel);
+		}
+
+		return userModel;
+	}
+	
+	
+	
+	
 	public MarksheetModelInt getMarksheetModel() {
 		MarksheetModelInt marksheetModel = (MarksheetModelInt) modelCache.get("marksheetModel");
 		if (marksheetModel == null) {
@@ -69,22 +178,6 @@ public final class ModelFactory {
 			modelCache.put("roleModel", roleModel);
 		}
 		return roleModel;
-	}
-
-	public UserModelInt getUserModel() {
-
-		UserModelInt userModel = (UserModelInt) modelCache.get("userModel");
-		if (userModel == null) {
-			if ("Hibernate".equals(DATABASE)) {
-				userModel = new UserModelHibImp();
-			}
-			if ("JDBC".equals(DATABASE)) {
-				userModel = new UserModelJDBCImpl();
-			}
-			modelCache.put("userModel", userModel);
-		}
-
-		return userModel;
 	}
 
 	public StudentModelInt getStudentModel() { 
@@ -144,7 +237,7 @@ public final class ModelFactory {
 				subjectModel = new SubjectModelJDBCImpl();
 			}
 			modelCache.put("subjectModel", subjectModel);
-		}
+		} 
 
 		return subjectModel;
 	}

@@ -14,7 +14,7 @@ import in.co.rays.project_3.dto.BaseDTO;
 
 
 /**
- * ServletUtility provides the servlet utility services 
+ * ServletUtility provides the servlet util services 
  * @author Suraj Sahu
  *
  */
@@ -160,9 +160,7 @@ public class ServletUtility {
     /**
      * Gets default DTO from request
      *
-     * @param request
-     * @return
-     */
+     * /
 
     public static BaseDTO getDto(HttpServletRequest request) {
         return (BaseDTO) request.getAttribute("dto");

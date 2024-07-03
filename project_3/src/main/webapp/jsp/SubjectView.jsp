@@ -28,10 +28,19 @@ i.css {
 	padding-left: 10px;
 	 padding-bottom: 7px; 
 	 background-color: #ebebe0;
+	 
+}
+.p4{
+padding-top: 6%;
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/books_11.jpg');
+	background-size: 100%;
+			  background-attachment: fixed;
+	
+
 }
 </style>
 </head>
-<body style=background-color:#ccccb3>
+<body style=background-color:#ccccb3 class="p4">
 	<div class="header"> 
 		<%@include file="Header.jsp"%>
 	</div>
@@ -52,7 +61,7 @@ i.css {
 							  long id=DataUtility.getLong(request.getParameter("id"));
 							
 							
-							if (dto.getId()!=null)  {
+							if (id!=0)  {
 							%>
 							<h3 class="text-center  text-primary">Update Subject</h3>
 							<%

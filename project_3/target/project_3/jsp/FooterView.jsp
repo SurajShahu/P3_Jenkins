@@ -14,7 +14,7 @@
 /*      background-color: #343a40;
  */      color: white;
    text-align: center;
- background-image:  linear-gradient(to bottom right,   Teal, MistyRose, Black);
+ background-image:  linear-gradient(to bottom right, white, black, grey);
 }
 
 </style>
@@ -22,8 +22,8 @@
 <body >
 <div class="footer">
 <center>
-<font color="black">
-<h5>&copy; RAYS Technologies</h5></font></center>
+
+<h5>&copy; RAYS Technologies</h5></center>
 </div>
 </body>
 

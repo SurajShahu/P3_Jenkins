@@ -29,7 +29,7 @@ import in.co.rays.project_3.util.ServletUtility;
  * @author Suraj Sahu
  *
  */
-@WebServlet(urlPatterns={"/ctl/TimeTableCtl"})
+@WebServlet(urlPatterns={"/ctl/TimeTableCtl"})	
 public class TimeTableCtl extends BaseCtl{
 	private static Logger log = Logger.getLogger(TimeTableCtl.class);
 

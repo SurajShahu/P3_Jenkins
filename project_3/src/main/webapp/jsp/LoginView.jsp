@@ -1,5 +1,3 @@
-
-
 <%@page import="in.co.rays.project_3.controller.UserRegistrationCtl"%>
 <%@page import="in.co.rays.project_3.util.ServletUtility"%>
 <%@page import="in.co.rays.project_3.controller.LoginCtl"%>
@@ -12,7 +10,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login view</title>
- <link rel="icon" type="image/x-icon" href="/img/logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link
@@ -28,33 +25,33 @@
 
 <style type="text/css">
 .log1 {
-	padding-top: 6%;
+	padding-top: 9%;
 }
 
 .input-group-addon {
 	box-shadow: 9px 8px 7px #001a33;
-	
 }
-.grad{
-background-image: linear-gradient(to bottom right, Teal, MistyRose, Black );
-background-repeat: no repeat;
-background-size: 100%;
-padding-bottom: 11px;
+
+.grad {
+	background-image: linear-gradient(to bottom right, grey, white);
+	background-repeat: no repeat;
+	background-size: 100%;
+	padding-bottom: 11px;
 }
+
 i.css {
 	border: 2px solid #8080803b;
 	padding-left: 10px;
-	
 	background-color: #ebebe0;
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/Book.jpeg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/login_img.jpg');
 	background-size: cover;
 	background-repeat: no repeat;
-	class= "img-responsive";
-	
-	
+	class
+	=
+	"img-responsive";
 }
 </style>
 </head>
@@ -74,7 +71,7 @@ i.css {
 					<div class="card input-group-addon grad	">
 						<div class="card-body">
 
-							<h3 class="text-center text-black">Login</h3>
+							<h3 class="text-center text-dark">Login</h3>
 							<!--Body-->
 							<div>
 
@@ -131,12 +128,12 @@ i.css {
 											<i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i>
 										</div>
 									</div>
-									<input type="text" class="form-control input-group-addon" name="login"
-										placeholder="Enter email"
+									<input type="text" class="form-control input-group-addon"
+										name="login" placeholder="Enter email"
 										value="<%=DataUtility.getStringData(dto.getLogin())%>">
 								</div>
 							</div>
-							
+
 							<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("login", request)%></font></br>
 
 							<span class="pl-sm-5"><b>Password</b> <span
@@ -148,8 +145,9 @@ i.css {
 											<i class="fa fa-lock grey-text" style="font-size: 1rem;"></i>
 										</div>
 									</div>
-									<input type="password" id="myInput" class="form-control input-group-addon"
-										name="password" placeholder="Enter password"
+									<input type="password" id="myInput"
+										class="form-control input-group-addon" name="password"
+										placeholder="Enter password"
 										value="<%=DataUtility.getStringData(dto.getPassword())%>">
 
 
@@ -167,20 +165,21 @@ i.css {
 									class="btn btn-success btn-md hover-overlayed"
 									style="font-size: 17px" value="<%=LoginCtl.OP_SIGN_IN%>">
 
+
 								<input type="submit" name="operation"
 									class="btn btn-primary btn-md" style="font-size: 17px"
-									value="<%=UserRegistrationCtl.OP_SIGN_UP%>">
+									value="<%=LoginCtl.OP_SIGN_UP%>">
 							</div>
 							<div class="text-center">
 								<a href="<%=ORSView.FORGET_PASSWORD_CTL%>"
-									style="color: white; font-size: 15px;"><b>Forget my
+									style="color: black; font-size: 15px;"><b>Forget my
 										password ?</b></a>
 							</div>
 							<input type="hidden" name="uri" value="<%=uri%>">
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 mb-4"></div>
+				<div class="col-md-4"></div>
 			</div>
 
 		</form>

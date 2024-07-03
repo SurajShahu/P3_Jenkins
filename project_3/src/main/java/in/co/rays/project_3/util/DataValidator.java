@@ -1,6 +1,7 @@
 package in.co.rays.project_3.util;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -12,11 +13,36 @@ import java.util.Date;
 public class DataValidator 
 {
 	
+	
+	public static boolean isAlphaNumeric(String value) {
+        if (value == null || value.trim().isEmpty()) {
+            return false;
+        }
+        // Regular expression to match alphanumeric characters
+        String regex = "^[a-zA-Z0-9]+$";
+        return value.matches(regex);
+    }
+	
+	/**
+     * Checks if the given date is in the future.
+     *
+     * @param value The date string to check, in the format "yyyy-MM-dd".
+     * @return True if the date is in the future, false otherwise.
+     */
+    public static boolean isFutureDate(String value) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
+            Date date = sdf.parse(value);
+            return date.after(new Date());
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+	
 	public static boolean isName(String name) { 
 
 		String namereg = "^[^-\\s][\\p{L} .']+$";
-		
-
 		//String sname = name.trim();
 
 		if (isNotNull(name) && name.matches(namereg)) {
